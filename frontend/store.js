@@ -1,11 +1,11 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import rootReducer from './reducers/root_reducer';
 
-const reducer = (state, action) => ({
-  state: "got it"
-});
-
-export default createStore(
-  reducer,
+const store = createStore(
+  rootReducer,
   applyMiddleware(thunk)
 );
+
+window.store = store;
+export default store;

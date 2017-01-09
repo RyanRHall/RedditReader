@@ -4,13 +4,13 @@ import store from '../store.js';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 // Components
 import Feed from './feed/feed';
-import Filters from './filters/filters';
+import SubManager from './sub_manager/sub_manager';
 
 const Root = () => (
   <Provider store={store}>
     <div>
       <Feed />
-      <Filters />
+      <SubManager />
     </div>
   </Provider>
 );
