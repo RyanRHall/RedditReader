@@ -7,8 +7,6 @@ export default ({subList, toggleSub}) => {
     toggleSub(e.currentTarget.id);
   }
 
-
-
   const _renderSubs = () => (
     subList.map( sub => (
       <div key={sub.name}>
@@ -16,7 +14,7 @@ export default ({subList, toggleSub}) => {
                id={sub.name}
                checked={sub.selected}
                onChange={_handleChange} />
-               
+
         <label htmlFor={sub.name}>{sub.name}</label>
       </div>
     ))
