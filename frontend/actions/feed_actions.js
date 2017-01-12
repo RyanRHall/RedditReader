@@ -1,12 +1,22 @@
-export const RECEIVE_FEED = "RECEIVE_FEED";
-export const ADD_TO_FEED = "ADD_TO_FEED";
+export const RECEIVE_LISTINGS = "RECEIVE_LISTINGS";
+export const ADD_LISTINGS = "ADD_LISTINGS";
+export const INITIALIZE = "INITIALIZE";
+export const LOADING = "LOADING";
 
-export const receiveFeed = feed => ({
-  type: RECEIVE_FEED,
-  feed
+export const receiveListings = listings => ({
+  type: RECEIVE_LISTINGS,
+  listings
 });
 
-export const addToFeed = feed => ({
-  type: ADD_TO_FEED,
-  feed
+export const addListings = listings => ({
+  type: ADD_LISTINGS,
+  listings
+});
+
+export const initialize = () => ({
+  type: INITIALIZE
+});
+
+export const loading = () => ({
+  type: LOADING
 });

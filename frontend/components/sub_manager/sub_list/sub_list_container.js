@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import SubList from './sub_list';
-import { toggleSub } from '../../../actions/sub_list_actions';
+import { toggleSub, deleteSub } from '../../../actions/sub_list_actions';
 
 
 const mapStateToProps = state => ({
@@ -8,7 +8,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  toggleSub
+  toggleSub,
+  deleteSub
 };
 
 export default connect(

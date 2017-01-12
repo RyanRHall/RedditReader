@@ -1,11 +1,13 @@
 import React from 'react';
 import { bindAll } from 'lodash';
+import FontAwesome from 'react-fontawesome';
+
 
 class SubSearch extends React.Component {
   constructor(props){
     super(props);
     this.state = {query: ""};
-    bindAll(this, "_handleChange", "_addSub");
+    bindAll(this, "_handleChange", "_addSub", "_handleClear");
   }
 
   _handleChange(e){
@@ -14,9 +16,26 @@ class SubSearch extends React.Component {
     this.props.requestSubs(query);
   }
 
-  _renderResults(){
+  _handleClear(){
+    this.setState({query: ""});
+    this.props.clearSearch();
+  }
+
+  _renderSubList(){
     return this.props.subSearchResults.map(
       subName => <div key={subName} data-sub-name={subName}>{subName}</div>
+    );
+  }
+
+  _renderResults(){
+    if(this.props.subSearchResults.length === 0){ return; }
+    return (
+      <div id="search-results">
+        <FontAwesome name='times-circle' onClick={this._handleClear}/>
+        <div onClick={this._addSub}>
+          {this._renderSubList()}
+        </div>
+      </div>
     );
   }
 
@@ -30,9 +49,7 @@ class SubSearch extends React.Component {
         <input onChange={this._handleChange}
           value={this.state.query}
           placeholder="Find A Subreddit!"/>
-        <div onClick={this._addSub}>
-          {this._renderResults()}
-        </div>
+        {this._renderResults()}
       </div>
     );
   }

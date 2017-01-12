@@ -23,8 +23,18 @@ export const fetchSubs = matcher => {
 };
 
 
-const _extractListingContent = responseData => {
-  return responseData.data.children.map( child => child.data );
+const _extractListingContent = responseData => (
+  responseData.data.children.map( child => child.data )
+);
+
+const _normalizeListings = listings => {
+  const normalListings = {};
+  listings.forEach( listing => {
+    let thumb = listing.thumbnail;
+    listing.thumbnail = (thumb.slice(0, 4) === "http" ? thumb : false);
+    normalListings[listing.name] = listing;
+  });
+  return normalListings;
 };
 
 export const fetchFeed = (sub, filter) => {
@@ -38,5 +48,8 @@ export const fetchFeed = (sub, filter) => {
     url: ENDPOINT + reqPath,
     method: "GET",
     data
-  }).then( _extractListingContent );
+  })
+  .then( _extractListingContent )
+  .then( _normalizeListings );
+
 };
