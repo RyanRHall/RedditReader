@@ -23,25 +23,29 @@ export const fetchSubs = matcher => {
 };
 
 
-const _extractListingContent = responseData => (
-  responseData.data.children.map( child => child.data )
-);
-
-const _normalizeListings = listings => {
-  const normalListings = {};
-  listings.forEach( listing => {
-    let thumb = listing.thumbnail;
-    listing.thumbnail = (thumb.slice(0, 4) === "http" ? thumb : false);
-    normalListings[listing.name] = listing;
+const _normalizeListings = responseData => {
+  const listings = {};
+  responseData.data.children.forEach( child => {
+    let thumb = child.data.thumbnail;
+    child.data.thumbnail = (thumb.slice(0, 4) === "http" ? thumb : false);
+    listings[child.data.name] = child.data;
   });
-  return normalListings;
+  return listings;
 };
 
-export const fetchFeed = (sub, filter) => {
-  const reqPath = path.join(sub, filter) + '.json';
+
+export const fetchFeed = (subName, filter, after) => {
+  const _extractFeedContent = responseData => ({
+    listings: _normalizeListings(responseData),
+    after: {[subName]: responseData.data.after}
+  });
+
+  const subPath = (subName === "") ? "" : `r/${subName}`;
+  const reqPath = path.join(subPath, filter) + '.json';
 
   const data = {
-    limit: 10
+    limit: 10,
+    after
   };
 
   return ajax({
@@ -49,7 +53,6 @@ export const fetchFeed = (sub, filter) => {
     method: "GET",
     data
   })
-  .then( _extractListingContent )
-  .then( _normalizeListings );
+  .then( _extractFeedContent );
 
 };

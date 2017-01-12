@@ -1,20 +1,20 @@
 export const RECEIVE_LISTINGS = "RECEIVE_LISTINGS";
-export const ADD_LISTINGS = "ADD_LISTINGS";
-export const INITIALIZE = "INITIALIZE";
+export const RECEIVE_ADDITIONAL_LISTINGS = "RECEIVE_ADDITIONAL_LISTINGS";
+export const REQUEST_MORE_LISTINGS = "REQUEST_MORE_LISTINGS";
 export const LOADING = "LOADING";
 
-export const receiveListings = listings => ({
+export const receiveListings = payload => ({
   type: RECEIVE_LISTINGS,
-  listings
+  payload
 });
 
-export const addListings = listings => ({
-  type: ADD_LISTINGS,
-  listings
+export const receiveAdditionalListings = payload => ({
+  type: RECEIVE_ADDITIONAL_LISTINGS,
+  payload
 });
 
-export const initialize = () => ({
-  type: INITIALIZE
+export const requestMoreListings = () => ({
+  type: REQUEST_MORE_LISTINGS
 });
 
 export const loading = () => ({

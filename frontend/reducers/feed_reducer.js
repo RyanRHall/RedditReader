@@ -1,4 +1,6 @@
-import { RECEIVE_LISTINGS, ADD_LISTINGS, LOADING } from '../actions/feed_actions';
+import { RECEIVE_LISTINGS, RECEIVE_ADDITIONAL_LISTINGS, LOADING }
+  from '../actions/feed_actions';
+
 import { keys, shuffle, merge } from 'lodash';
 
 const _defaultState = {
@@ -13,14 +15,14 @@ const feedReducer = (oldState=_defaultState, action) => {
   switch(action.type){
     case RECEIVE_LISTINGS:
       return {
-        listings: action.listings,
-        order: _shuffleKeys(action.listings),
+        listings: action.payload.listings,
+        order: _shuffleKeys(action.payload.listings),
         loading: false
       };
 
-    case ADD_LISTINGS:
-      const newListings = merge({}, oldState.listings, action.listings);
-      const newOrder = oldState.order.concat(_shuffleKeys(action.listings));
+    case RECEIVE_ADDITIONAL_LISTINGS:
+      const newListings = merge({}, oldState.listings, action.payload.listings);
+      const newOrder = oldState.order.concat(_shuffleKeys(action.payload.listings));
       return {
         listings: newListings,
         order: newOrder,

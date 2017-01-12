@@ -1,4 +1,5 @@
 import { ADD_SUB, DELETE_SUB, TOGGLE_SUB } from '../actions/sub_list_actions';
+import { merge } from 'lodash';
 
 export default function(oldState=[], action){
   switch(action.type){
@@ -12,6 +13,7 @@ export default function(oldState=[], action){
 
     case TOGGLE_SUB:
       let foundIdx = oldState.findIndex( sub => sub.name === action.subName );
+
       newSub = {
         name: oldState[foundIdx].name,
         selected: !oldState[foundIdx].selected

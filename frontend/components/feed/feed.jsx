@@ -1,14 +1,23 @@
 import React from 'react';
-import PicListing from './pic_listing';
-import NoPicListing from './no_pic_listing';
+import Waypoint from 'react-waypoint';
+import Listing from './listing';
+import Spinner from './spinner';
 
-const Feed = ({listings}) => (
-  <div>
-    {listings.map( listing => {
-      const Component = (listing.thumbnail) ? PicListing : NoPicListing;
-      return <Component listing={listing} key={listing.name} />
-    })}
-  </div>
-);
+const Feed = ({listings, loading, requestMoreListings}) => {
+
+  const _loadingContent = () => (
+    (loading) ? <Spinner /> : <div id="load-bar">Load More</div>
+  );
+
+  return(
+    <div id="feed" className={loading ? "feed-loading" : ""}>
+      {listings.map( listing => (
+        <Listing listing={listing} key={listing.name} />
+      ))}
+      <Waypoint onEnter={requestMoreListings}/>
+      {_loadingContent()}
+    </div>
+  )
+};
 
 export default Feed;

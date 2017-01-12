@@ -4,9 +4,9 @@ import SubListContainer from './sub_list/sub_list_container';
 import Filters from './filters/filters_container';
 
 export default () => (
-  <div>
-    <SubSearchContainer />
+  <div id="sub-manager">
     <Filters />
+    <SubSearchContainer />
     <SubListContainer />
   </div>
 );
