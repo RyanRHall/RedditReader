@@ -1,15 +1,29 @@
 #sub-search {
   border-radius: 10px;
+  margin-bottom: 25px;
 }
 
-#sub-search input {
+#search-field-container {
+  position: relative;
+}
+
+#search-field-container input {
   width: 100%;
   text-align: center;
-  padding: 3px;
+  padding: 5px 3px;
+  border: 1px solid #888;
+}
+
+#search-field-container .fa-search {
+  position: absolute;
+  top: 5px; right: 5px;
+  color: lightgreen;
 }
 
 #sub-search input:focus {
   outline: none;
+  border: 2px solid lightgreen;
+  padding: 4px 2px;
 }
 
 #search-results {
@@ -43,4 +57,5 @@
   position: absolute;
   top: 8px;
   right: 8px;
+  font-size: 120%;
 }

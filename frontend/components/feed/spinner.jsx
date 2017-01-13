@@ -4,7 +4,7 @@ require('../_css/spinner');
 export default () => {
 
   const style = {
-    top: window.scrollY + (window.innerHeight / 3) - 40
+    top: window.scrollY + (window.innerHeight / 2) - 40
   };
 
 

@@ -49,9 +49,12 @@ class SubSearch extends React.Component {
   render(){
     return (
       <div id="sub-search">
-        <input onChange={this._handleChange}
-          value={this.state.query}
-          placeholder="Find A Subreddit!"/>
+        <div id="search-field-container">
+          <input onChange={this._handleChange}
+            value={this.state.query}
+            placeholder="Find A Subreddit!"/>
+          <FontAwesome name='search' />
+        </div>
         {this._renderResults()}
       </div>
     );

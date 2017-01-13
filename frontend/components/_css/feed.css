@@ -56,6 +56,10 @@
   flex: 1;
 }
 
+.detail-h {
+  width: 100%;
+}
+
 .detail-h div {
   width: 100%;
   display: flex;

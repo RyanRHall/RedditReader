@@ -1,4 +1,7 @@
 import React from 'react';
+require('../../_css/filters');
+require('../../_css/shared/three_d');
+require('../../_css/shared/hr');
 
 const FILTER_NAMES = ["HOT", "NEW", "RISING"];
 
@@ -23,7 +26,9 @@ const Filters = ({selected, setFilter}) => {
   };
 
   return(
-    <div id="filters-container">
+    <div id="filters" className="three-d">
+      <h5>Filters</h5>
+      <div className="hr"></div>
       {_generateFilters()}
     </div>
   );

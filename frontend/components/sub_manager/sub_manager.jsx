@@ -7,8 +7,8 @@ import { Row, Column } from 'react-foundation';
 
 export default () => (
     <Row id="sub-manager" className="display">
-      <Column small={4} large={12}><Filters /></Column>
       <Column small={4} large={12}><SubSearchContainer /></Column>
+      <Column small={4} large={12}><Filters /></Column>
       <Column small={4} large={12}><SubListContainer /></Column>
     </Row>
 );
