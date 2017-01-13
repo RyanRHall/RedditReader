@@ -7,6 +7,7 @@ import { initialize } from '../actions/feed_actions';
 // Components
 import FeedContainer from './feed/feed_container';
 import SubManager from './sub_manager/sub_manager';
+require('./_css/root');
 
 const Root = () => (
   <Provider store={store}>

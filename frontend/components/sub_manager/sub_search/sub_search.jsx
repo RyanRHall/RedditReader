@@ -1,6 +1,7 @@
 import React from 'react';
 import { bindAll } from 'lodash';
 import FontAwesome from 'react-fontawesome';
+require('../../_css/sub_search');
 
 
 class SubSearch extends React.Component {
@@ -45,7 +46,7 @@ class SubSearch extends React.Component {
 
   render(){
     return (
-      <div>
+      <div id="sub-search">
         <input onChange={this._handleChange}
           value={this.state.query}
           placeholder="Find A Subreddit!"/>

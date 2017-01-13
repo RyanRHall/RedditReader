@@ -1,10 +1,14 @@
 import React from 'react';
 
-const NoPicListing = ({listing, className}) => {
+const Details = ({listing, className}) => {
+
+  const _shortTitle = () => (
+    listing.title.length > 80 ? listing.title.slice(0, 77) + "..." : listing.title
+  )
 
   return(
     <div className={className}>
-      <h3>{listing.title}</h3>
+      <h3>{_shortTitle()}</h3>
       <div>
         <span>Sub: {listing.subreddit}</span>
         <span>Up Votes: {listing.ups}</span>
@@ -14,4 +18,4 @@ const NoPicListing = ({listing, className}) => {
   );
 };
 
-export default NoPicListing;
+export default Details;

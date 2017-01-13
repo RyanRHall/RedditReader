@@ -1,5 +1,6 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
+require('../../_css/sub_list');
 
 
 export default ({subList, toggleSub, deleteSub}) => {

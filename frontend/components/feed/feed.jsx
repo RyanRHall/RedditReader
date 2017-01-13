@@ -2,12 +2,11 @@ import React from 'react';
 import Waypoint from 'react-waypoint';
 import Listing from './listing';
 import Spinner from './spinner';
+require('../_css/feed');
 
 const Feed = ({listings, loading, requestMoreListings}) => {
 
-  const _loadingContent = () => (
-    (loading) ? <Spinner /> : <div id="load-bar">Load More</div>
-  );
+  const _loadingContent = () => loading ? <Spinner /> : null;
 
   return(
     <div id="feed" className={loading ? "feed-loading" : ""}>
