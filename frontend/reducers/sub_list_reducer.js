@@ -2,18 +2,20 @@ import { ADD_SUB, DELETE_SUB, TOGGLE_SUB } from '../actions/sub_list_actions';
 import { merge } from 'lodash';
 
 export default function(oldState=[], action){
-  switch(action.type){
+  let foundIdx = oldState.findIndex( sub => sub.name === action.subName );
 
+  switch(action.type){
     case ADD_SUB:
+      if(foundIdx !== -1 ){ return oldState; }
+
       let newSub = {
         name: action.subName,
         selected: true
       };
+      
       return [...oldState, newSub].sort();
 
     case TOGGLE_SUB:
-      let foundIdx = oldState.findIndex( sub => sub.name === action.subName );
-
       newSub = {
         name: oldState[foundIdx].name,
         selected: !oldState[foundIdx].selected
@@ -24,8 +26,6 @@ export default function(oldState=[], action){
               ...oldState.slice(foundIdx + 1)];
 
     case DELETE_SUB:
-      foundIdx = oldState.findIndex( sub => sub.name === action.subName );
-
       return [...oldState.slice(0, foundIdx),
               ...oldState.slice(foundIdx + 1)];
 

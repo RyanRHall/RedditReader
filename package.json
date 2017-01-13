@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "./node_modules/.bin/http-server -p 5000",
-    "bundle": "./node_modules/.bin/webpack"
+    "setup": "npm install; npm run serve",
+    "postinstall": "./node_modules/.bin/webpack",
+    "serve": "./node_modules/.bin/http-server -p 5050"
   },
   "keywords": [],
   "author": "",
