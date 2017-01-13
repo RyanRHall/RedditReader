@@ -8,5 +8,4 @@ const store = createStore(
   applyMiddleware(thunk, FeedMiddleware)
 );
 
-window.store = store;
 export default store;
