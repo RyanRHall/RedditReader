@@ -10,9 +10,9 @@ const Details = ({listing, className}) => {
     <div className={className}>
       <h3>{_shortTitle()}</h3>
       <div>
-        <span>Sub: {listing.subreddit}</span>
-        <span>Up Votes: {listing.ups}</span>
-        <span>Author: {listing.author}</span>
+        <span><strong>Sub:</strong> {listing.subreddit}</span>
+        <span><strong>Up Votes:</strong> {listing.ups}</span>
+        <span><strong>Author:</strong> {listing.author}</span>
       </div>
     </div>
   );

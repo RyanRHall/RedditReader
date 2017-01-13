@@ -1,6 +1,9 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
 require('../../_css/sub_list');
+require('../../_css/shared/three_d');
+require('../../_css/shared/exit');
+
 
 
 export default ({subList, toggleSub, deleteSub}) => {
@@ -28,7 +31,7 @@ export default ({subList, toggleSub, deleteSub}) => {
 
 
   return(
-    <div id="sub-list">
+    <div id="sub-list" className="three-d">
       {_renderSubs()}
     </div>
   )

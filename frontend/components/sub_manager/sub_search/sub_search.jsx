@@ -2,6 +2,8 @@ import React from 'react';
 import { bindAll } from 'lodash';
 import FontAwesome from 'react-fontawesome';
 require('../../_css/sub_search');
+require('../../_css/shared/three_d');
+require('../../_css/shared/exit');
 
 
 class SubSearch extends React.Component {
@@ -24,18 +26,18 @@ class SubSearch extends React.Component {
 
   _renderSubList(){
     return this.props.subSearchResults.map(
-      subName => <div key={subName} data-sub-name={subName}>{subName}</div>
+      subName => <li key={subName} data-sub-name={subName}>{subName}</li>
     );
   }
 
   _renderResults(){
     if(this.props.subSearchResults.length === 0){ return; }
     return (
-      <div id="search-results">
+      <div id="search-results" className="three-d">
         <FontAwesome name='times-circle' onClick={this._handleClear}/>
-        <div onClick={this._addSub}>
+        <ul onClick={this._addSub}>
           {this._renderSubList()}
-        </div>
+        </ul>
       </div>
     );
   }

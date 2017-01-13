@@ -1,5 +1,6 @@
 import React from 'react';
 import Details from './details';
+require('../_css/shared/three_d');
 
 
 const Listing = ({listing}) => {
@@ -15,7 +16,7 @@ const Listing = ({listing}) => {
   );
 
   return(
-    <div className="listing" onClick={_handleClick}>
+    <div className="listing three-d" onClick={_handleClick}>
       {_generateImage()}
       <Details listing={listing} className={_generateDetailClassName()}/>
     </div>
