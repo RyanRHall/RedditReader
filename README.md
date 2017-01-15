@@ -50,6 +50,7 @@ The most important part of the design for this app was the state shape, which lo
 }
 ```
 
+* `after` -- an object used to track the last listing loaded for each sub-reddit
 * `feed.listings` -- an object with unique identifiers as keys and objects with listing information as values
 * `feed.loading` -- a boolean that causes the loading spinner to show/hide
 * `feed.order` -- an array of identifiers that specifies the render order
