@@ -29,7 +29,7 @@
 ---
 ### Design
 
-This app was built using react for view rendering and redux for state management.
+This app was built using react for view rendering, redux for state management, and foundation for responsiveness.
 
 #### State
 
