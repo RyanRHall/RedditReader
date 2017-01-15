@@ -1,7 +1,7 @@
 ## Reddit Reader
 
 ---
-#### Setup
+### Setup
 
 0. `git clone`
 0. navigate to directory
@@ -10,7 +10,9 @@
 
 * Server can be stopped using `ctl+c` and re-started using `npm run serve`
 
-#### Features
+---
+
+### Features
 
 0. Autocomplete sub-search
 ![search](docs/search.png)
@@ -75,13 +77,15 @@ Root
   * `SubList` -- Displays a list of all the subs a user has added to their profile. They can toggle the sub on or off while keeping it in their list.
   * `SubSearch` -- Autocomplete search feature that allows users to add new sub-reddits to their feed.
 
-#### Approach Summary
+---
+
+### Approach Summary
 
 My basic approach to building this app was to store all relevant query & filter information in the application state, and to build a reddit api wrapper that deconstructed the application state into an appropriate query. Then, build a listener such that every time the application state changes, the query fires.
 
 If a user has subscribed to multiple sub-reddits, then a separate query is fired for each. The results are then randomly merged together when generating the new application state. If the user has no sub-reddits configured, then the reddit home page content is shown instead.
 
-#### Improvements
+### Improvements
 
 * No user information (such as filter or sub-reddit preferences) persists between page refreshes. This could be implemented without a backend by using the Local Storage api.
 
