@@ -29,7 +29,7 @@
 ---
 ### Design
 
-This app was built using **react** for view rendering, **redux** for state management, and **foundation** for responsiveness.
+This app was built using **React.js** for view rendering, **Redux.js** for state management, and **Foundation** for responsiveness.
 
 #### State
 
@@ -60,7 +60,7 @@ The most important part of the design for this app was the state shape, which lo
 
 #### Components
 
-The react component hierarchy looks like this:
+The React component hierarchy looks like this:
 
 ```
 Root
