@@ -5,7 +5,6 @@ require('../../_css/sub_search');
 require('../../_css/shared/three_d');
 require('../../_css/shared/exit');
 
-
 class SubSearch extends React.Component {
   constructor(props){
     super(props);
@@ -13,6 +12,7 @@ class SubSearch extends React.Component {
     bindAll(this, "_handleChange", "_addSub", "_handleClear");
   }
 
+  // Event handlers
   _handleChange(e){
     const query = e.currentTarget.value;
     this.setState({query});
@@ -24,10 +24,15 @@ class SubSearch extends React.Component {
     this.props.clearSearch();
   }
 
+  // Render helpers
   _renderSubList(){
     return this.props.subSearchResults.map(
       subName => <li key={subName} data-sub-name={subName}>{subName}</li>
     );
+  }
+
+  _addSub(e){
+    this.props.addSub(e.target.dataset.subName);
   }
 
   _renderResults(){
@@ -40,10 +45,6 @@ class SubSearch extends React.Component {
         </ul>
       </div>
     );
-  }
-
-  _addSub(e){
-    this.props.addSub(e.target.dataset.subName);
   }
 
   render(){

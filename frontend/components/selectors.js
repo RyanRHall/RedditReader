@@ -1,4 +1,3 @@
-
 export const listingsInView = state => {
   const listings = [];
 

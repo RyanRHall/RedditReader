@@ -11,6 +11,7 @@ const Filters = ({selected, setFilter}) => {
     setFilter(e.currentTarget.id);
   };
 
+  // Creates all the radio buttons
   const _generateFilters = () => {
     return FILTER_NAMES.map( name => (
       <div key={name}>

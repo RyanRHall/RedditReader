@@ -3,6 +3,8 @@ import path from 'path';
 
 const ENDPOINT = "https://www.reddit.com/";
 
+// Search for subs that match the user's query
+
 const _extractSubredditNames = responseData => (
   responseData.data.children.map( sub => sub.data.display_name )
 );
@@ -22,6 +24,7 @@ export const fetchSubs = matcher => {
   }).then( _extractSubredditNames );
 };
 
+// Fetch the feed!
 
 const _normalizeListings = responseData => {
   const listings = {};
@@ -33,6 +36,8 @@ const _normalizeListings = responseData => {
   return listings;
 };
 
+// This only happens if the user subscribes to a private sub
+const _returnBlank = () => ({});
 
 export const fetchFeed = (subName, filter, after) => {
   const _extractFeedContent = responseData => ({
@@ -53,6 +58,7 @@ export const fetchFeed = (subName, filter, after) => {
     method: "GET",
     data
   })
-  .then( _extractFeedContent );
+  .then( _extractFeedContent )
+  .catch( _returnBlank );
 
 };

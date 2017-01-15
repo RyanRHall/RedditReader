@@ -5,8 +5,6 @@ require('../../_css/shared/three_d');
 require('../../_css/shared/exit');
 require('../../_css/shared/hr');
 
-
-
 export default ({subList, toggleSub, deleteSub}) => {
 
   const _handleChange = e => {
@@ -15,6 +13,7 @@ export default ({subList, toggleSub, deleteSub}) => {
 
   const _handleDelete = subName => () => deleteSub(subName);
 
+  // Creates the list of subs & checkboxes
   const _renderSubs = () => (
     subList.map( sub => (
       <div key={sub.name}>
@@ -28,8 +27,6 @@ export default ({subList, toggleSub, deleteSub}) => {
       </div>
     ))
   );
-
-
 
   return(
     <div id="sub-list" className="three-d">

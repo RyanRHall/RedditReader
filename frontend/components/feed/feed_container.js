@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Feed from './feed';
-import { listingsInView } from './selectors';
+import { listingsInView } from '../selectors';
 import { requestMoreListings } from '../../actions/feed_actions';
 
 const mapStateToProps = state => ({
