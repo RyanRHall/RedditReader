@@ -15,10 +15,14 @@
 ### Features
 
 0. Autocomplete sub-search
-![search](docs/search.png)
+  ![search](docs/search.png)
+
 0. Custom Sub-Reddit feed
+
 ![search](docs/subs.png)
+
 0. Infinite Scroll
+
 ![search](docs/infinite_scroll.png)
 
 ---
