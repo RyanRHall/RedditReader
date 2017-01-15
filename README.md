@@ -15,7 +15,8 @@
 ### Features
 
 0. Autocomplete sub-search
-  ![search](docs/search.png)
+
+![search](docs/search.png)
 
 0. Custom Sub-Reddit feed
 
