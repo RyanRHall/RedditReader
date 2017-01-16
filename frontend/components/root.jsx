@@ -1,6 +1,5 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import { Row, Column } from 'react-foundation';
 import store from '../store.js';
 import { initialize } from '../actions/feed_actions';
